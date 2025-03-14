@@ -1,4 +1,4 @@
-function MoviesCard({ movie }) {
+function MovieCard({ movie }) {
 	function handleFavoriteClick() {
 		alert('favorite clicked');
 	}
@@ -21,4 +21,4 @@ function MoviesCard({ movie }) {
 	);
 }
 
-export default MoviesCard;
+export default MovieCard;
