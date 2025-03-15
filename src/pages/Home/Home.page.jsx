@@ -20,7 +20,8 @@ function Home() {
 			try {
 				const popularMovies = await getPopularMovies();
 				setMovies(popularMovies);
-			} catch {
+			} catch (error) {
+				console.error(error);
 				setError('Failed to load!');
 			} finally {
 				setLoading(false);
@@ -51,14 +52,20 @@ function Home() {
 				</button>
 			</form>
 
-			<div className='movies-grid'>
-				{movies.map(
-					(movie) =>
-						movie.title.toLowerCase().startsWith(searchQuery) && (
-							<MovieCard key={movie.id} movie={movie} />
-						)
-				)}
-			</div>
+			{loading ? (
+				<div className='loading'>Loading...</div>
+			) : error ? (
+				<div className='error-message'>{error}</div>
+			) : (
+				<div className='movies-grid'>
+					{movies.map(
+						(movie) =>
+							movie.title.toLowerCase().startsWith(searchQuery) && (
+								<MovieCard key={movie.id} movie={movie} />
+							)
+					)}
+				</div>
+			)}
 		</div>
 	);
 }
