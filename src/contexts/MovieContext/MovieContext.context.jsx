@@ -17,7 +17,7 @@ function MovieProvider({ children }) {
 		setFavorites((favorites) => [...favorites, movie]);
 	};
 
-	const removeFromFavories = (id) => {
+	const removeFromFavorites = (id) => {
 		setFavorites((favorites) => favorites.filter((movie) => movie.id !== id));
 	};
 
@@ -26,7 +26,7 @@ function MovieProvider({ children }) {
 	const value = {
 		favorites,
 		addToFavorites,
-		removeFromFavories,
+		removeFromFavorites,
 		isFavorite,
 	};
 
