@@ -1,7 +1,5 @@
-import { createContext, useState, useContext, useEffect } from 'react';
-
-const MovieContext = createContext();
-export const useMovieContext = () => useContext(MovieContext);
+import { useState, useEffect } from 'react';
+import { movieContext as MovieContext } from './MovieContext.tools';
 
 export const MovieProvider = ({ children }) => {
 	const [favorites, setFavorites] = useState([]);
@@ -25,16 +23,14 @@ export const MovieProvider = ({ children }) => {
 
 	const isFavorite = (id) => favorites.some((movie) => movie.id === id);
 
-  const value = {
-    favorites,
-    addToFavorites,
-    removeFromFavories,
-    isFavorite
-  }
+	const value = {
+		favorites,
+		addToFavorites,
+		removeFromFavories,
+		isFavorite,
+	};
 
 	return (
-    <MovieContext.Provider value={value}>
-      {children}
-    </MovieContext.Provider>
-  );
+		<MovieContext.Provider value={value}>{children}</MovieContext.Provider>
+	);
 };
