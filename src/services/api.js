@@ -22,5 +22,6 @@ export async function searchMovies(query) {
 		return data.results;
 	} catch (error) {
 		console.error(error);
+		throw error;
 	}
 }
