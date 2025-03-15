@@ -31,10 +31,23 @@ function Home() {
 		loadPopularMovies();
 	}, []);
 
-	function handleSearch(e) {
+	async function handleSearch(e) {
 		e.preventDefault();
-		alert(searchQuery);
-		setSearchQuery('');
+		if (!searchQuery.trim()) return; // do nothing if search query is empty space
+		if (loading) return;// do nothing if app is already loading
+		setLoading(true);
+
+		try {
+			const searchResults = await searchMovies(searchQuery);
+			setMovies(searchResults);
+			setError(null);
+		} catch (error) {
+			console.error(error);
+			setError('Failed to load search results!');
+		} finally {
+			setLoading(false);
+			setSearchQuery('');
+		}
 	}
 
 	return (
