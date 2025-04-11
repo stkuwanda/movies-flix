@@ -1,6 +1,6 @@
 # Movies Flix Project
 
-This project built on React and Vite demonstrates a simple tmovies listing website using pure React and CSS for styling. No UI frameworks.
+This project built on React and Vite demonstrates a simple movies listing website using pure React and CSS for styling. No UI frameworks.
 
 ### Usage
 
