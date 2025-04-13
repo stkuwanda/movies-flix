@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home.page';
 import Favorites from './pages/Favorites/Favorites.page';
 import Navbar from './components/Navbar/Navbar.component';
-import MovieProvider from './contexts/MovieContext/MovieContext.context';
+import MovieProvider from './contexts/MovieContext/MovieProvider.context';
 import './App.css';
 
 
